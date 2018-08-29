@@ -1,0 +1,34 @@
+nginx:
+    image: docker.registry.mama.cn:5000/develop/nginx:1.10.1
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - "php70"
+    volumes:
+      - ~/opt:/opt
+      - ./nginx/vhosts:/usr/local/nginx/conf/vhosts/
+      - ./nginx/my_ssl:/usr/local/nginx/conf/my_ssl/
+
+php70:
+    image: docker.registry.mama.cn:5000/develop/php:7.0.14-v7
+    links:
+      - "redis"
+    volumes:
+      - ~/opt:/opt
+      - ~/opt/logs:/data/logs
+      - ~/opt/log/php7:/usr/local/php/var/log
+      - ./php/php-fpm:/usr/local/php/etc/php-fpm.d/
+      - ./php/php-extension:/usr/local/php/etc/conf.d/
+      - ./php/php7.ini:/usr/local/php/etc/php.ini
+      - /etc/hosts:/etc/hosts
+    env_file:
+      - ./env/pregnancy/test_18/papi.mama.cn.env
+      - ./env/record/test_18/rdapi.mama.cn.env
+      - ./env/record/test_18/record.api.mama.cn.env
+      - ./env/pregnancy/develop_19/cs.mama.cn.env
+
+redis:
+    image: redis:3.2
+    ports:
+      - "6379:6379"

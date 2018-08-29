@@ -1,0 +1,6 @@
+*.phar
+*.tgz
+elasticsearch/*.zip
+.DS_Store
+!.gitignore
+.idea/
