@@ -14,9 +14,9 @@ php7:
     volumes:
       - ~/opt:/opt
       - ~/opt:/opt/htdocs
-      - ./php/php-fpm:/usr/local/php/etc/php-fpm.d/
-      - ./php/php-extension:/usr/local/php/etc/conf.d/
-      - ./php/php7.ini:/usr/local/php/etc/php.ini
+#      - ./php/php-fpm:/usr/local/php/etc/php-fpm.d/
+#      - ./php/php-extension:/usr/local/php/etc/conf.d/
+#      - ./php/php7.ini:/usr/local/php/etc/php.ini
       - /etc/hosts:/etc/hosts
     env_file:
       - ./env/blog/blog.env
