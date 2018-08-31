@@ -19,4 +19,4 @@ php7:
       - ./php/php7.ini:/usr/local/php/etc/php.ini
       - /etc/hosts:/etc/hosts
     env_file:
-      - ${DOCKER_CONFIG_PATH}/blog/env/blog/blog.env
+      - ./blog/env/blog/blog.env
