@@ -12,8 +12,8 @@ nginx:
 php7:
     image: php
     volumes:
-      - ${DOCKER_OPT_PATH}:/opt
-      - ${DOCKER_CODE_PATH}:/opt/htdocs
+      - ~/opt:/opt
+      - ~/opt:/opt/htdocs
       - ./php/php-fpm:/usr/local/php/etc/php-fpm.d/
       - ./php/php-extension:/usr/local/php/etc/conf.d/
       - ./php/php7.ini:/usr/local/php/etc/php.ini
