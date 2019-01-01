@@ -1,0 +1,21 @@
+nginx:
+    container_name: xpblog_nginx
+    image: nginx:1.10
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - "php72"
+    volumes:
+      - ~/opt/htdocs/html:/usr/share/nginx/html
+      - ./nginx/vhosts:/etc/nginx/conf.d/
+
+php72:
+    container_name: xpblog_php
+    image: php:7.2
+    ports:
+      - "9000:9000"
+    tty: true
+    volumes:
+      - ~/opt/htdocs/html:/usr/share/nginx/html
+      - /etc/hosts:/etc/hosts
