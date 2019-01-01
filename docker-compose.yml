@@ -7,15 +7,14 @@ nginx:
     links:
       - "php72"
     volumes:
-      - ~/opt/htdocs/html:/usr/share/nginx/html
-      - ./nginx/vhosts:/etc/nginx/conf.d/
+      - ~/opt/htdocs/html/:/usr/share/nginx/html/
+      - ./nginx/vhosts/:/etc/nginx/conf.d/
 
 php72:
     container_name: xpblog_php
     image: php:7.2
-    ports:
-      - "9000:9000"
     tty: true
     volumes:
-      - ~/opt/htdocs/html:/usr/share/nginx/html
+      - ~/opt/htdocs/html/:/usr/share/nginx/html/
+      #- ~/opt/htdocs/html/docker-config/php/php72.ini:/usr/local/etc/php/php.ini
       - /etc/hosts:/etc/hosts
